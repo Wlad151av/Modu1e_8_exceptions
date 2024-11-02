@@ -1,18 +1,20 @@
 def add_everything_up(a1,a2):
 
     try:
-        a1 = int(a1)
-        a2 = int(a2)
-        return(a1+a2)
+        res = a1+a2
     except:
-        if type(a1) == int:
+        if type(a1) == int or type(a1) == float:
             a1 = str(a1)
-        elif type(a2) == int:
+            
+        elif type(a2) == int or type(a2) == float:
             a2 = str(a2)
-        return(str(a1)+str(a2))
+        res = a1+a2
+    if type(res) == float:
+        width = max(len(str(a1)),len(str(a2)))
+        res = str(res)[:width]
+    return(res)
 
-p1 = input("Введите первый операнд:")
-p2 = input("Введите второй операнд:")
 
-print(add_everything_up(p1,p2))
-
+print(add_everything_up(123.456, 'строка'))
+print(add_everything_up('яблоко', 4215))
+print(add_everything_up(123.456, 7))
